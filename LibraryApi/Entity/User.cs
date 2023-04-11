@@ -2,9 +2,7 @@ namespace LibraryApi.Entity;
 
 public class User
 {
-    public static void Main(string[] args)
-    
-    {
-        
-    }
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+    public string Document { get; set; }
 }
