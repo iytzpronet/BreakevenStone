@@ -9,11 +9,11 @@ public class BookMapping:IEntityTypeConfiguration<Book> {
     {
         builder.ToTable("Book");
         builder.HasKey(b=>b.Id);
-        builder.Property(b=>b.title).IsRequired().HasColumnType("varchar(50)");
-        builder.Property(b=>b.authors).IsRequired().HasColumnType("varchar(50)");
-        builder.Property(b => b.totalPages).IsRequired().HasColumnType("int");
+        builder.Property(b=>b.Title).IsRequired().HasColumnType("varchar(50)");
+        builder.Property(b=>b.Authors).IsRequired().HasColumnType("varchar(50)");
+        builder.Property(b => b.TotalPages).IsRequired().HasColumnType("int");
         builder.Property(b => b.ISBN).IsRequired().HasColumnType("varchar(50)");
-        builder.Property(b => b.publishDate).IsRequired().HasColumnType("datetime");
+        builder.Property(b => b.PublishDate).IsRequired().HasColumnType("datetime");
 
     }
 }

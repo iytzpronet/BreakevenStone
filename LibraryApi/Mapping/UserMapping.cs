@@ -9,8 +9,8 @@ public class UserMapping:IEntityTypeConfiguration<User> {
     {
         builder.ToTable("User");
         builder.HasKey(u => u.Id);
-        builder.Property(u => u.name).IsRequired().HasColumnType("varchar(50)");
-        builder.Property(u => u.document).IsRequired().HasColumnType("varchar(11)");
+        builder.Property(u => u.Name).IsRequired().HasColumnType("varchar(50)");
+        builder.Property(u => u.Document).IsRequired().HasColumnType("varchar(11)");
         
     }
 } 

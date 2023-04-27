@@ -24,8 +24,8 @@ namespace LibraryApi.Controller;
         public void Add(CreateUserRequest createUserRequest)
         {
             var user = new User();
-            user.name = createUserRequest.Name;
-            user.document = createUserRequest.Document;
+            user.Name = createUserRequest.Name;
+            user.Document = createUserRequest.Document;
             _repository.Add(user);
         }
         [HttpGet("List")]

@@ -8,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddTransient<IUserRepository, UserRepository>();
+builder.Services.AddTransient<IBookRepository, BookRepository>();
+builder.Services.AddTransient<ITransactionRepository, TransactionRepository>();
 builder.Services.AddControllers();
 builder.Services.AddDbContext<LibraryContext>(opt =>
     opt.UseInMemoryDatabase("LibraryApi"));
