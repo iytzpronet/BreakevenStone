@@ -1,7 +1,8 @@
-using System;
+ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LibraryApi.Controller.Request;
 using LibraryApi.Entity;
 using LibraryApi.Repository;
 using Microsoft.AspNetCore.Http;
@@ -20,8 +21,11 @@ namespace LibraryApi.Controller;
             this._repository = repository;
         }
         [HttpPost("Add")]
-        public void Add(User user)
+        public void Add(CreateUserRequest createUserRequest)
         {
+            var user = new User();
+            user.name = createUserRequest.Name;
+            user.document = createUserRequest.Document;
             _repository.Add(user);
         }
         [HttpGet("List")]

@@ -15,6 +15,7 @@ public class UserRepository : IUserRepository
     public void Add(User user)
     {
         context.User.Add(user);
+        context.SaveChanges();
     }
 
     public async Task<List<User>> GetAll()
