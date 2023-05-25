@@ -37,10 +37,10 @@ Para instalar a LibraryApi, siga as etapas abaixo:
 ## Recomendações e Referências 
 Para utilizar a LibraryApi, siga as instruções fornecidas na documentação oficial do projeto. A API permite cadastrar livros, realizar empréstimos e devoluções. Acesse os seguintes recursos para aprender a utilizar a API:
 
-[Hub de Documentação do Entity Framework](https://learn.microsoft.com/pt-br/ef/)
-[Tutorial de Criação de uma Web API](https://learn.microsoft.com/pt-br/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio)
-[Documentação para o Fluent Validation](https://docs.fluentvalidation.net/en/latest/including-rules.html)
-[Realizar testes unitários utilizando XUnit](https://learn.microsoft.com/pt-br/dotnet/core/testing/unit-testing-with-dotnet-test)
+[Hub de Documentação do Entity Framework](https://learn.microsoft.com/pt-br/ef/)\
+[Tutorial de Criação de uma Web API](https://learn.microsoft.com/pt-br/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio)\
+[Documentação para o Fluent Validation](https://docs.fluentvalidation.net/en/latest/including-rules.html)\
+[Realizar testes unitários utilizando XUnit](https://learn.microsoft.com/pt-br/dotnet/core/testing/unit-testing-with-dotnet-test)\
 
 ## Documentações Adicionais 
 
