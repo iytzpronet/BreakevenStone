@@ -5,13 +5,13 @@ A LibraryApi é uma API que simula uma biblioteca de livros. Ela permite cadastr
 
 ## Índice
 
-Status do Projeto
-Pré-requisitos
-Instalação
-Uso
-Contribuição
-Documentação Adicional
-Licença
+Status do Projeto\
+Pré-requisitos\
+Instalação\
+Uso\
+Contribuição\
+Documentação Adicional\
+Licença\
 Contato
 
 ## Status do Projeto
@@ -21,17 +21,17 @@ A LibraryApi está na versão beta, o que significa que está em desenvolvimento
 
 Antes de instalar e utilizar a LibraryApi, certifique-se de ter os seguintes requisitos:
 
-.NET 6
-WebAPI.NET6
-Entity Framework
+.NET 6\
+WebAPI.NET6\
+Entity Framework\
 Fluent Validation
 
 ## Instalação
 Para instalar a LibraryApi, siga as etapas abaixo:
 
-1.Certifique-se de ter o .NET 6 instalado em seu sistema. Caso não tenha, você pode baixá-lo em [Microsoft](https://dotnet.microsoft.com/en-us/download)
-2.Clone o repositório da LibraryApi em sua máquina local.
-3.Acesse o diretório do projeto e execute o comando dotnet build para compilar a solução.
+1.Certifique-se de ter o .NET 6 instalado em seu sistema. Caso não tenha, você pode baixá-lo em [Microsoft](https://dotnet.microsoft.com/en-us/download)\
+2.Clone o repositório da LibraryApi em sua máquina local.\
+3.Acesse o diretório do projeto e execute o comando dotnet build para compilar a solução.\
 4.Após a compilação bem-sucedida, execute o comando dotnet run para iniciar a API.
 
 ## Recomendações e Referências 
