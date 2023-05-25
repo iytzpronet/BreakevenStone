@@ -35,7 +35,7 @@ Para instalar a LibraryApi, siga as etapas abaixo:
 4.Após a compilação bem-sucedida, execute o comando dotnet run para iniciar a API.
 
 ## Recomendações e Referências 
-Para utilizar a LibraryApi, siga as instruções fornecidas na documentação oficial do projeto. A API permite cadastrar livros, realizar empréstimos e devoluções. Acesse os seguintes recursos para aprender a utilizar a API:
+A API permite cadastrar livros, realizar empréstimos e devoluções. Acesse os seguintes recursos para aprender a utilizar a API:
 
 [Hub de Documentação do Entity Framework](https://learn.microsoft.com/pt-br/ef/)\
 [Tutorial de Criação de uma Web API](https://learn.microsoft.com/pt-br/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio)\
