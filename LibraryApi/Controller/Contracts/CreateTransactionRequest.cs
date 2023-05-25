@@ -4,10 +4,10 @@ namespace LibraryApi.Controller.Request;
 
 public class CreateTransactionRequest
 {
-    public TransactionType type { get; set; }
-    public DateTime dueDate { get; set; }
-    public Guid userId { get; set; }
-    public virtual User user { get; set; }
-    public Guid bookId { get; set; }
-    public virtual Book book { get; set; }
+    public TransactionType Type { get; set; }
+    public DateTime DueDate { get; set; }
+    public Guid UserId { get; set; }
+    public Guid BookId { get; set; }
+   
+    
 }

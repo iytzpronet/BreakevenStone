@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "XmoN9ih5BmTazdOhbiz7q1Gsn8kgxSuLMrNF1rGWPmZv+cSUlEQXAlQ2DoSzYjW/qalkoJdVNf+gmeh1fCCkNg==",
+  "dgSpecHash": "PTNknaUaL2ypaXUcxuvUkpN9IG6bJfuemoFQmh2ZC+L0OpsatztV1QeXyxEpNMGPpFICTr0lmTfpk9WSmDknCw==",
   "success": true,
   "projectFilePath": "C:\\Users\\matheus.figueiredo\\RiderProjects\\LibraryApi\\LibraryApi\\LibraryApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\matheus.figueiredo\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
+    "C:\\Users\\matheus.figueiredo\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\matheus.figueiredo\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\matheus.figueiredo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\matheus.figueiredo\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\matheus.figueiredo\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",

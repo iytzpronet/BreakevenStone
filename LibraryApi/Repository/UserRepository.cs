@@ -22,4 +22,19 @@ public class UserRepository : IUserRepository
     {
         return await context.User.ToListAsync();
     }
+
+    public async Task<User> GetById(Guid id)
+    {
+        return await context.User.FirstOrDefaultAsync(x => x.Id == id);
+    } 
+    public void Update(User user)
+    {
+        context.User.Update(user);
+        context.SaveChanges();
+    }
+    public void Delete(User user)
+    {
+        context.User.Remove(user);
+        context.SaveChanges();
+    }
 }

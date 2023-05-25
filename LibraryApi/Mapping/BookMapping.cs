@@ -14,6 +14,7 @@ public class BookMapping:IEntityTypeConfiguration<Book> {
         builder.Property(b => b.TotalPages).IsRequired().HasColumnType("int");
         builder.Property(b => b.ISBN).IsRequired().HasColumnType("varchar(50)");
         builder.Property(b => b.PublishDate).IsRequired().HasColumnType("datetime");
+        builder.Property(b => b.ExemplaryBooks).IsRequired().HasColumnType("int");
 
     }
 }

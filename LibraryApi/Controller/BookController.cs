@@ -1,123 +1,67 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using LibraryApi.Controller.Request;
 using LibraryApi.Entity;
+using LibraryApi.Repository;
+using Microsoft.AspNetCore.Mvc;
 
-namespace LibraryApi.Controller
+namespace LibraryApi.Controller;
+
+[Route("api/[Controller]")]
+[ApiController]
+public class BookController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class BookController : ControllerBase
+    private readonly IBookRepository _repository;
+
+    public BookController(IBookRepository repository)
     {
-        private readonly LibraryContext _context;
-
-        public BookController(LibraryContext context)
-        {
-            _context = context;
-        }
-
-        // GET: api/Book
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Book>>> GetBook()
-        {
-          if (_context.Book == null)
-          {
-              return NotFound();
-          }
-            return await _context.Book.ToListAsync();
-        }
-
-        // GET: api/Book/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Book>> GetBook(Guid id)
-        {
-          if (_context.Book == null)
-          {
-              return NotFound();
-          }
-            var book = await _context.Book.FindAsync(id);
-
-            if (book == null)
-            {
-                return NotFound();
-            }
-
-            return book;
-        }
-
-        // PUT: api/Book/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutBook(Guid id, Book book)
-        {
-            if (id != book.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(book).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BookExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Book
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<Book>> PostBook(Book book)
-        {
-          if (_context.Book == null)
-          {
-              return Problem("Entity set 'LibraryContext.Book'  is null.");
-          }
-            _context.Book.Add(book);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetBook", new { id = book.Id }, book);
-        }
-
-        // DELETE: api/Book/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBook(Guid id)
-        {
-            if (_context.Book == null)
-            {
-                return NotFound();
-            }
-            var book = await _context.Book.FindAsync(id);
-            if (book == null)
-            {
-                return NotFound();
-            }
-
-            _context.Book.Remove(book);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool BookExists(Guid id)
-        {
-            return (_context.Book?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
+        this._repository = repository;
     }
-}
+    [HttpPost("Add")]
+    public void Add(CreateBookRequest createBookRequest)
+    {
+        var book = new Book();
+        book.Title = createBookRequest.Title;
+        book.ISBN = createBookRequest.ISBN;
+        book.Authors = createBookRequest.Authors;
+        book.PublishDate = createBookRequest.PublishDate;
+        book.TotalPages = createBookRequest.TotalPages;
+        book.ExemplaryBooks = createBookRequest.ExemplaryBooks;
+        _repository.Add(book);
+    }  
+    [HttpGet("List")]
+    public async Task<List<Book>> List ()
+    {
+        return await _repository.GetAll();
+    }
+
+    [HttpPut("Update/{id}")]
+    public async Task Update(Guid id, CreateBookRequest request)
+    {
+        var book = await _repository.GetById(id);
+        book.Title = request.Title;
+        book.Authors = request.Authors;
+        book.TotalPages = request.TotalPages;
+        book.PublishDate = request.PublishDate;
+        book.ISBN = request.ISBN;
+        book.ExemplaryBooks = request.ExemplaryBooks;
+        _repository.Update(book);
+    }
+    [HttpDelete("Delete/{id}")]
+    public async Task<IActionResult> Delete(Guid id)
+    {
+        var book = await _repository.GetById(id);
+
+        if (book == null)
+        {
+            return NotFound("Id não encontrado.");
+        }
+
+        var verify = await _repository.Verify(book);
+        if (verify.Count > 0)
+        {
+            return UnprocessableEntity();
+        }
+        _repository.Delete(book);
+
+        return NoContent();
+    }
+}   

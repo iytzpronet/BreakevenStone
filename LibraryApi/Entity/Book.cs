@@ -8,4 +8,9 @@ public class Book
     public DateTime PublishDate { get; set; }
     public int TotalPages { get; set; }
     public string Authors { get; set; }
+    public int ExemplaryBooks { get; set; }
+    public Book()
+    {
+        Id = Guid.NewGuid();
+    }
 }

@@ -12,15 +12,10 @@ public class TransactionRepository : ITransactionRepository
         this.context = context;
     }
 
-    public void Add(User user)
-    {
-        context.User.Add(user);
-        context.SaveChanges();
-    }
-
     public void Add(Transaction transaction)
     {
-        throw new NotImplementedException();
+        context.Transaction.Add(transaction);
+        context.SaveChanges();
     }
 
     public async Task<List<Transaction>> GetAll()

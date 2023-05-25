@@ -1,3 +1,5 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using LibraryApi;
 using LibraryApi.Entity;
@@ -17,7 +19,8 @@ builder.Services.AddSwaggerGen(c =>
 
     c.SwaggerDoc("v1", new() { Title = "TodoApi", Version = "v1" }));
 
-
+builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Program>());
+builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

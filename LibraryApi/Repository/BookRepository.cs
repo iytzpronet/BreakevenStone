@@ -11,22 +11,33 @@ public class BookRepository : IBookRepository
     {
         this._context = context;
     }
-
     public void Add(Book book)
     {
-        _context.Book.Add(Book);
+        _context.Book.Add(book);
         _context.SaveChanges();
     }
 
-    public Book Book { get; set; }
-    
-    Task<List<Book>> IBookRepository.GetAll()
+    public async Task<List<Transaction>> Verify(Book book)
     {
-        throw new NotImplementedException();
+       return await _context.Transaction.Where(b => b.BookId  == book.Id && b.Type==TransactionType.CHECKOUT).ToListAsync();
     }
-
     public async Task<List<Book>> GetAll()
     {
         return await _context.Book.ToListAsync();
+    } 
+    public async Task<Book> GetById(Guid id)
+    {
+        return await _context.Book.FirstOrDefaultAsync(x=>x.Id == id);
+    } 
+    public void Update(Book book)
+    {
+        _context.Book.Update(book);
+        _context.SaveChanges();
     }
+    public void Delete(Book book)
+    {
+        _context.Book.Remove(book);
+        _context.SaveChanges();
+    }
+
 }

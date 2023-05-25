@@ -1,12 +1,7 @@
- using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using LibraryApi.Controller.Request;
 using LibraryApi.Entity;
 using LibraryApi.Repository;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+ using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryApi.Controller;
 
@@ -20,18 +15,43 @@ namespace LibraryApi.Controller;
         {
             this._repository = repository;
         }
+
         [HttpPost("Add")]
-        public void Add(CreateUserRequest createUserRequest)
+        public async Task<IActionResult> Add(CreateUserRequest createUserRequest)
         {
             var user = new User();
             user.Name = createUserRequest.Name;
             user.Document = createUserRequest.Document;
             _repository.Add(user);
+            return Ok();
         }
+
         [HttpGet("List")]
         public async Task<List<User>> List ()
         {
             return await _repository.GetAll();
         }
-    }
+        
+        [HttpPut("Update/{id}")]
+        public async Task Update(Guid id,CreateUserRequest request)
+        {
+            var user = await _repository.GetById(id);
+            user.Name = request.Name;
+            user.Document = request.Document;
+            _repository.Update(user);
+        }
 
+        [HttpDelete("Delete/{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var user = await _repository.GetById(id);
+
+            if (user == null)
+            {
+                return NotFound("Id não encontrado.");
+            }
+            _repository.Delete(user);
+
+            return NoContent();
+        }
+    }
