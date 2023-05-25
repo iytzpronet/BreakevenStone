@@ -43,4 +43,4 @@ A API permite cadastrar livros, realizar empréstimos e devoluções. Acesse os 
 [Realizar testes unitários utilizando XUnit](https://learn.microsoft.com/pt-br/dotnet/core/testing/unit-testing-with-dotnet-test)
 
 ## Documentações Adicionais 
-
+![swagger](https://github.com/iytzpronet/BreakevenStone/blob/main/swagger%20libraryapi.jpg?raw=tru)
