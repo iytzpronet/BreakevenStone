@@ -15,6 +15,7 @@ public class BookController : ControllerBase
     {
         this._repository = repository;
     }
+    
     [HttpPost()]
     public void Add(CreateBookRequest createBookRequest)
     {
@@ -26,7 +27,8 @@ public class BookController : ControllerBase
         book.TotalPages = createBookRequest.TotalPages;
         book.ExemplaryBooks = createBookRequest.ExemplaryBooks;
         _repository.Add(book);
-    }  
+    }
+    
     [HttpGet()]
     public async Task<List<Book>> List ()
     {
@@ -51,6 +53,7 @@ public class BookController : ControllerBase
         book.ExemplaryBooks = request.ExemplaryBooks;
         _repository.Update(book);
     }
+    
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {

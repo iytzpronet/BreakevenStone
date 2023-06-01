@@ -19,7 +19,7 @@ public class BookRepository : IBookRepository
 
     public async Task<List<Transaction>> Verify(Book book)
     {
-       return await _context.Transaction.Where(b => b.BookId  == book.Id && b.Type==TransactionType.CHECKOUT).ToListAsync();
+       return await _context.Transaction.Where(b => b.BookId == book.Id && b.Type == TransactionType.CHECKOUT).ToListAsync();
     }
     public async Task<List<Book>> GetAll()
     {
@@ -27,7 +27,7 @@ public class BookRepository : IBookRepository
     } 
     public async Task<Book> GetById(Guid id)
     {
-        return await _context.Book.FirstOrDefaultAsync(x=>x.Id == id);
+        return await _context.Book.FirstOrDefaultAsync(x=> x.Id == id);
     } 
     public void Update(Book book)
     {
