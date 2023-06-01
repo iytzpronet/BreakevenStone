@@ -15,7 +15,7 @@ public class TransactionController : ControllerBase
     {
         this._repository = repository;
     }
-    [HttpPost("Add")]
+    [HttpPost()]
     public void Add(CreateTransactionRequest createTransactionRequest)
     {
         var transaction = new Transaction();
@@ -25,7 +25,7 @@ public class TransactionController : ControllerBase
         transaction.BookId = createTransactionRequest.BookId;
         _repository.Add(transaction);
     }  
-    [HttpGet("List")]
+    [HttpGet()]
     public async Task<List<Transaction>> List ()
     {
         return await _repository.GetAll();

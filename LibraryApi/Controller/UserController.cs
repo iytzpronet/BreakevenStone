@@ -16,7 +16,7 @@ namespace LibraryApi.Controller;
             this._repository = repository;
         }
 
-        [HttpPost("Add")]
+        [HttpPost()]
         public async Task<IActionResult> Add(CreateUserRequest createUserRequest)
         {
             var user = new User();
@@ -26,13 +26,13 @@ namespace LibraryApi.Controller;
             return Ok();
         }
 
-        [HttpGet("List")]
+        [HttpGet()]
         public async Task<List<User>> List ()
         {
             return await _repository.GetAll();
         }
         
-        [HttpPut("Update/{id}")]
+        [HttpPut("{id}")]
         public async Task Update(Guid id,CreateUserRequest request)
         {
             var user = await _repository.GetById(id);
@@ -41,7 +41,7 @@ namespace LibraryApi.Controller;
             _repository.Update(user);
         }
 
-        [HttpDelete("Delete/{id}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var user = await _repository.GetById(id);

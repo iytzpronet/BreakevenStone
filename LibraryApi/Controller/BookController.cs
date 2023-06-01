@@ -15,7 +15,7 @@ public class BookController : ControllerBase
     {
         this._repository = repository;
     }
-    [HttpPost("Add")]
+    [HttpPost()]
     public void Add(CreateBookRequest createBookRequest)
     {
         var book = new Book();
@@ -27,13 +27,19 @@ public class BookController : ControllerBase
         book.ExemplaryBooks = createBookRequest.ExemplaryBooks;
         _repository.Add(book);
     }  
-    [HttpGet("List")]
+    [HttpGet()]
     public async Task<List<Book>> List ()
     {
         return await _repository.GetAll();
     }
 
-    [HttpPut("Update/{id}")]
+    [HttpGet("{id}")]
+    public async Task<Book> getbyid(Guid id)
+    {
+        return await _repository.GetById(id);
+    }
+
+    [HttpPut("{id}")]
     public async Task Update(Guid id, CreateBookRequest request)
     {
         var book = await _repository.GetById(id);
@@ -45,7 +51,7 @@ public class BookController : ControllerBase
         book.ExemplaryBooks = request.ExemplaryBooks;
         _repository.Update(book);
     }
-    [HttpDelete("Delete/{id}")]
+    [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
         var book = await _repository.GetById(id);
