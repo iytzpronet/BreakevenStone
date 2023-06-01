@@ -1,9 +1,8 @@
 using LibraryApi.Entity;
-
 namespace LibraryApi.Repository;
 
 public interface IUserRepository
-{
+{ 
     Task<List<User>> GetAll();
     Task<User> GetById(Guid Id);
     void Add(User user);

@@ -1,25 +1,21 @@
 using LibraryApi.Entity;
 using Microsoft.EntityFrameworkCore;
-
 namespace LibraryApi.Repository;
 
 public class TransactionRepository : ITransactionRepository
 {
-    private readonly LibraryContext context;
-
+    private readonly LibraryContext _context;
     public TransactionRepository(LibraryContext context)
     {
-        this.context = context;
+        this._context = context;
     }
-
     public void Add(Transaction transaction)
     {
-        context.Transaction.Add(transaction);
-        context.SaveChanges();
+        _context.Transaction.Add(transaction);
+        _context.SaveChanges();
     }
-
     public async Task<List<Transaction>> GetAll()
     {
-        return await context.Transaction.ToListAsync();
+        return await _context.Transaction.ToListAsync();
     }
 }

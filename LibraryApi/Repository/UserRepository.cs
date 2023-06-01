@@ -1,40 +1,35 @@
 using LibraryApi.Entity;
 using Microsoft.EntityFrameworkCore;
 
-namespace LibraryApi.Repository;
-
+namespace LibraryApi.Repository; 
 public class UserRepository : IUserRepository
 {
-    private readonly LibraryContext context;
-
+    private readonly LibraryContext _context; 
     public UserRepository(LibraryContext context)
     {
-        this.context = context;
+        this._context = context;
     }
-
     public void Add(User user)
     {
-        context.User.Add(user);
-        context.SaveChanges();
-    }
-
+        _context.User.Add(user);
+        _context.SaveChanges();
+    } 
     public async Task<List<User>> GetAll()
     {
-        return await context.User.ToListAsync();
+        return await _context.User.ToListAsync();
     }
-
     public async Task<User> GetById(Guid id)
     {
-        return await context.User.FirstOrDefaultAsync(x => x.Id == id);
+        return await _context.User.FirstOrDefaultAsync(x => x.Id == id);
     } 
     public void Update(User user)
     {
-        context.User.Update(user);
-        context.SaveChanges();
+        _context.User.Update(user);
+        _context.SaveChanges();
     }
     public void Delete(User user)
     {
-        context.User.Remove(user);
-        context.SaveChanges();
+        _context.User.Remove(user);
+        _context.SaveChanges();
     }
 }
