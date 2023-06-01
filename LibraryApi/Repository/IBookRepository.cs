@@ -8,6 +8,6 @@ public interface IBookRepository
     Task<Book> GetById(Guid id);
     void Update(Book book);
     void Delete(Book book);
-    public void Add(Book book);
-    public Task<List<Transaction>> Verify(Book book);
+    void Add(Book book);
+    Task<List<Transaction>> Verify(Book book);
 }

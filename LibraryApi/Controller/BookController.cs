@@ -8,6 +8,7 @@ namespace LibraryApi.Controller;
 [Route("api/[Controller]")]
 [ApiController]
 public class BookController : ControllerBase
+
 {
     private readonly IBookRepository _repository;
 
