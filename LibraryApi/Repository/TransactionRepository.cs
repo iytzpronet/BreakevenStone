@@ -20,4 +20,9 @@ public class TransactionRepository : ITransactionRepository
     {
         return await _context.Transaction.ToListAsync();
     }
+    
+    public async Task<List<Transaction>> GetCheckoutTransactionsByBookId(Guid id)
+    {
+        return await _context.Transaction.Where(b => b.BookId == id && b.Type == TransactionType.CHECKOUT).ToListAsync();
+    }
 }

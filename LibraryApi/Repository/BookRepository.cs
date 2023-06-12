@@ -17,11 +17,6 @@ public class BookRepository : IBookRepository
         _context.Book.Add(book);
         _context.SaveChanges();
     }
-
-    public async Task<List<Transaction>> Verify(Book book)
-    {
-       return await _context.Transaction.Where(b => b.BookId == book.Id && b.Type == TransactionType.CHECKOUT).ToListAsync();
-    }
     
     public async Task<List<Book>> GetAll()
     {

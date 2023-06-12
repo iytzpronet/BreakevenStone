@@ -5,4 +5,5 @@ namespace LibraryApi.Repository;
 { 
     void Add(Transaction transaction);
     Task<List<Transaction>> GetAll();
+    Task<List<Transaction>> GetCheckoutTransactionsByBookId(Guid id);
 }

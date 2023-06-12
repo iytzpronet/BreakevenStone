@@ -8,15 +8,16 @@ namespace LibraryApi.Controller;
 [Route("api/[Controller]")]
 [ApiController]
 public class BookController : ControllerBase
-
 {
-    private readonly IBookRepository _repository;
+    private readonly IBookRepository _bookRepository;
+    private readonly ITransactionRepository _transactionRepository;
 
-    public BookController(IBookRepository repository)
+    public BookController(IBookRepository bookRepository, ITransactionRepository transactionRepository)
     {
-        this._repository = repository;
+        _bookRepository = bookRepository;
+        _transactionRepository = transactionRepository;
     }
-    
+
     [HttpPost()]
     public void Add(CreateBookRequest createBookRequest)
     {
@@ -27,51 +28,57 @@ public class BookController : ControllerBase
         book.PublishDate = createBookRequest.PublishDate;
         book.TotalPages = createBookRequest.TotalPages;
         book.ExemplaryBooks = createBookRequest.ExemplaryBooks;
-        _repository.Add(book);
+        _bookRepository.Add(book);
     }
-    
+
     [HttpGet()]
-    public async Task<List<Book>> List ()
+    public async Task<List<Book>> List()
     {
-        return await _repository.GetAll();
+        return await _bookRepository.GetAll();
     }
 
     [HttpGet("{id}")]
     public async Task<Book> getbyid(Guid id)
     {
-        return await _repository.GetById(id);
+        return await _bookRepository.GetById(id);
     }
 
     [HttpPut("{id}")]
     public async Task Update(Guid id, CreateBookRequest request)
     {
-        var book = await _repository.GetById(id);
+        var book = await _bookRepository.GetById(id);
         book.Title = request.Title;
         book.Authors = request.Authors;
         book.TotalPages = request.TotalPages;
         book.PublishDate = request.PublishDate;
         book.ISBN = request.ISBN;
         book.ExemplaryBooks = request.ExemplaryBooks;
-        _repository.Update(book);
+        _bookRepository.Update(book);
     }
-    
+
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
-        var book = await _repository.GetById(id);
+        var book = await _bookRepository.GetById(id);
 
         if (book == null)
         {
             return NotFound("Id não encontrado.");
         }
 
-        var verify = await _repository.Verify(book);
-        if (verify.Count > 0)
+        if (await VerifyExistTransaction(id))
         {
-            return UnprocessableEntity();
+            return UnprocessableEntity("existem transaçoes pendentes");
         }
-        _repository.Delete(book);
+
+        _bookRepository.Delete(book);
 
         return NoContent();
     }
-}   
+
+    private async Task<bool> VerifyExistTransaction(Guid id)
+    {
+        var bookTransactions = await _transactionRepository.GetCheckoutTransactionsByBookId(id);
+        return bookTransactions.Count > 0;
+    }
+} 
