@@ -39,5 +39,4 @@ public class BookRepository : IBookRepository
         _context.Book.Remove(book);
         _context.SaveChanges();
     }
-
 }

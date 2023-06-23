@@ -1,3 +1,4 @@
+using DateTime = System.DateTime;
 using LibraryApi.Controller.Request;
 using LibraryApi.Entity;
 using LibraryApi.Repository;
@@ -19,12 +20,21 @@ public class TransactionController : ControllerBase
     public void Add(CreateTransactionRequest createTransactionRequest)
     {
         var transaction = new Transaction();
-        transaction.Type = createTransactionRequest.Type;
+        transaction.Status = createTransactionRequest.Status;
         transaction.Duedate = DateTime.Now.AddDays(7);
         transaction.UserId = createTransactionRequest.UserId;
         transaction.BookId = createTransactionRequest.BookId;
         _repository.Add(transaction);
     }  
+    
+    [HttpPut()]
+    public async Task Update(Guid id,UpdateTransactionRequest request)
+    {
+        var transaction = await _repository.GetById(id);
+        transaction.Status = request.Status;
+        _repository.Update(transaction);
+    }
+    
     [HttpGet()]
     public async Task<List<Transaction>> List ()
     {

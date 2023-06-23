@@ -47,7 +47,7 @@ public class BookController : ControllerBase
     public async Task Update(Guid id, CreateBookRequest request)
     {
         var book = await _bookRepository.GetById(id);
-        book.Title = request.Title;
+        book.Title = request.Title; 
         book.Authors = request.Authors;
         book.TotalPages = request.TotalPages;
         book.PublishDate = request.PublishDate;
@@ -70,7 +70,7 @@ public class BookController : ControllerBase
         {
             return UnprocessableEntity("existem transaçoes pendentes");
         }
-
+        
         _bookRepository.Delete(book);
 
         return NoContent();

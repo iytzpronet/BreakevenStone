@@ -5,7 +5,7 @@ namespace LibraryApi.Entity;
 public class Transaction
 {
     public Guid Id { get; set; }
-    public TransactionType Type { get; set; }
+    public TransactionStatus Status { get; set; }
     public DateTime Duedate { get; set; }
     public Guid UserId { get; set; }
     public virtual User user { get; set; }
@@ -18,8 +18,8 @@ public class Transaction
     }
 }
 
-public enum TransactionType
+public enum TransactionStatus
 {
-    CHECKOUT = 0 ,
-    RETURN = 1 ,
+    Borrowed = 0,
+    Returned = 1
 }

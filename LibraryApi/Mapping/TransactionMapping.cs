@@ -10,7 +10,7 @@ namespace LibraryApi.Mapping;
         {
             builder.ToTable("Transaction");
             builder.HasKey(t=>t.Id);
-            builder.Property(t=>t.Type).IsRequired().HasColumnType("varchar(1)");
+            builder.Property(t=>t.Status).IsRequired().HasColumnType("varchar(1)");
             builder.Property(t=>t.BookId).IsRequired().HasColumnType("varchar(50)");
             builder.Property(t=>t.UserId).IsRequired().HasColumnType("varchar(50)");
             builder.Property(t => t.Duedate).IsRequired().HasColumnType("datetime");

@@ -9,11 +9,13 @@ namespace LibraryApi.Controller;
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserRepository _repository;
+        private readonly IUserRepository _userRepository;
+        private readonly ITransactionRepository _transactionRepository;
 
-        public UserController(IUserRepository repository)
+        public UserController(IUserRepository userRepository, ITransactionRepository transactionRepository)
         {
-            this._repository = repository;
+            this._userRepository = userRepository;
+            _transactionRepository = transactionRepository;
         }
 
         [HttpPost()]
@@ -22,36 +24,54 @@ namespace LibraryApi.Controller;
             var user = new User();
             user.Name = createUserRequest.Name;
             user.Document = createUserRequest.Document;
-            _repository.Add(user);
+            _userRepository.Add(user);
             return Ok();
         }
 
         [HttpGet()]
         public async Task<List<User>> List ()
         {
-            return await _repository.GetAll();
+            return await _userRepository.GetAll();
+        }
+        
+        [HttpGet("{id}")]
+        public async Task<User> getbyid(Guid id)
+        {
+            return await _userRepository.GetById(id);
         }
         
         [HttpPut("{id}")]
         public async Task Update(Guid id,CreateUserRequest request)
         {
-            var user = await _repository.GetById(id);
+            var user = await _userRepository.GetById(id);
             user.Name = request.Name;
             user.Document = request.Document;
-            _repository.Update(user);
+            _userRepository.Update(user);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var user = await _repository.GetById(id);
+            var user = await _userRepository.GetById(id);
 
             if (user == null)
             {
                 return NotFound("Id não encontrado.");
             }
-            _repository.Delete(user);
+
+            if (await VerifyExistTransaction(id))
+            {
+                return UnprocessableEntity("existem transaçoes pendentes");
+            }
+        
+            _userRepository.Delete(user);
 
             return NoContent();
         }
-    }
+
+        private async Task<bool> VerifyExistTransaction(Guid id)
+        {
+            var userTransactions = await _transactionRepository.GetCheckoutTransactionsByUserId(id);
+            return userTransactions.Count > 0;
+        }
+    } 
