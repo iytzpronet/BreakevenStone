@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "P6ofVoNZR1FidLOcHE4xnxk4UbXR2oPbyhhMkBwHg8Mou2cFSq86NQBuWJTT4mvAPhwv2ET0zadMhbm0MpDafw==",
+  "dgSpecHash": "+Eayi6ZYAfb/Y/BfFiskx1KbZWKgZEU94XFcLZ7+Z9S4qjUtdPpdCZ90yI+IODic95rdPDjCPCjVnb4DnbL0Fg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\matheus.figueiredo\\RiderProjects\\LibraryApi\\LibraryApi\\LibraryApi.csproj",
+  "projectFilePath": "C:\\Users\\matheus.figueiredo\\Desktop\\break\\BreakevenStone\\LibraryApi\\LibraryApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\matheus.figueiredo\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",
     "C:\\Users\\matheus.figueiredo\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",

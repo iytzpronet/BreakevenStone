@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\matheus.figueiredo\\RiderProjects\\LibraryApi\\LibraryApi\\LibraryApi.csproj": {}
+    "C:\\Users\\matheus.figueiredo\\Desktop\\break\\BreakevenStone\\LibraryApi\\LibraryApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\matheus.figueiredo\\RiderProjects\\LibraryApi\\LibraryApi\\LibraryApi.csproj": {
+    "C:\\Users\\matheus.figueiredo\\Desktop\\break\\BreakevenStone\\LibraryApi\\LibraryApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matheus.figueiredo\\RiderProjects\\LibraryApi\\LibraryApi\\LibraryApi.csproj",
+        "projectUniqueName": "C:\\Users\\matheus.figueiredo\\Desktop\\break\\BreakevenStone\\LibraryApi\\LibraryApi.csproj",
         "projectName": "LibraryApi",
-        "projectPath": "C:\\Users\\matheus.figueiredo\\RiderProjects\\LibraryApi\\LibraryApi\\LibraryApi.csproj",
+        "projectPath": "C:\\Users\\matheus.figueiredo\\Desktop\\break\\BreakevenStone\\LibraryApi\\LibraryApi.csproj",
         "packagesPath": "C:\\Users\\matheus.figueiredo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matheus.figueiredo\\RiderProjects\\LibraryApi\\LibraryApi\\obj\\",
+        "outputPath": "C:\\Users\\matheus.figueiredo\\Desktop\\break\\BreakevenStone\\LibraryApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
