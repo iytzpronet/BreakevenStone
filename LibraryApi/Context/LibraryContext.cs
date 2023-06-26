@@ -3,7 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryApi.Entity;
 
-public class LibraryContext:DbContext {
+public class LibraryContext:DbContext 
+{
     public DbSet<User> User { get; set; }
     public DbSet<Book> Book { get; set; }
     public DbSet<Transaction> Transaction { get; set; }
@@ -15,7 +16,6 @@ public class LibraryContext:DbContext {
         modelBuilder.ApplyConfiguration(new TransactionMapping());
     }
 
-    public LibraryContext(DbContextOptions<LibraryContext> dbContextOptions): base(dbContextOptions)
-    {
-    }
+    public LibraryContext(DbContextOptions<LibraryContext> dbContextOptions) : base(dbContextOptions)
+    { }
 }

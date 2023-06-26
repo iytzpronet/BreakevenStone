@@ -36,7 +36,7 @@ public class TransactionController : ControllerBase
     }
     
     [HttpGet()]
-    public async Task<List<Transaction>> List ()
+    public async Task<List<Transaction>> List()
     {
         return await _repository.GetAll();
     }

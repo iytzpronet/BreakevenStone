@@ -4,11 +4,9 @@ namespace LibraryApi.Controller.Request;
 
 public class CreateUserRequest
 {
-    public bool validate ()
+    public bool Validate()
     {
-        if (Name.Length < 3)
-            return false;
-        return true;
+        return Name.Length >= 3;
     } 
     public string Name { get; set; }
     public string Document { get; set; }

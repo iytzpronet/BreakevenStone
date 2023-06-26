@@ -1,4 +1,5 @@
 using LibraryApi.Entity;
+using LibraryApi.Enumerations;
 using Microsoft.EntityFrameworkCore;
 namespace LibraryApi.Repository;
 

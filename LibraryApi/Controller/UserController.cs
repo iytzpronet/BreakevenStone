@@ -29,7 +29,7 @@ namespace LibraryApi.Controller;
         }
 
         [HttpGet()]
-        public async Task<List<User>> List ()
+        public async Task<List<User>> List()
         {
             return await _userRepository.GetAll();
         }

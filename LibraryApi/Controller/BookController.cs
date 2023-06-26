@@ -38,7 +38,7 @@ public class BookController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<Book> getbyid(Guid id)
+    public async Task<Book> GetById(Guid id)
     {
         return await _bookRepository.GetById(id);
     }

@@ -10819,32 +10819,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\matheus.figueiredo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Mateus\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\matheus.figueiredo\\Desktop\\break\\BreakevenStone\\LibraryApi\\LibraryApi.csproj",
+      "projectUniqueName": "C:\\StoneProjects\\BreakevenStone\\BreakevenStone\\BreakevenStone\\LibraryApi\\LibraryApi.csproj",
       "projectName": "LibraryApi",
-      "projectPath": "C:\\Users\\matheus.figueiredo\\Desktop\\break\\BreakevenStone\\LibraryApi\\LibraryApi.csproj",
-      "packagesPath": "C:\\Users\\matheus.figueiredo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\matheus.figueiredo\\Desktop\\break\\BreakevenStone\\LibraryApi\\obj\\",
+      "projectPath": "C:\\StoneProjects\\BreakevenStone\\BreakevenStone\\BreakevenStone\\LibraryApi\\LibraryApi.csproj",
+      "packagesPath": "C:\\Users\\Mateus\\.nuget\\packages\\",
+      "outputPath": "C:\\StoneProjects\\BreakevenStone\\BreakevenStone\\BreakevenStone\\LibraryApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\matheus.figueiredo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Mateus\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10925,7 +10917,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.410\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.411\\RuntimeIdentifierGraph.json"
       }
     }
   }

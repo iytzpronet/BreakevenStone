@@ -1,4 +1,5 @@
 using LibraryApi.Controller.Request;
+using LibraryApi.Enumerations;
 
 namespace LibraryApi.Entity;
 
@@ -16,10 +17,4 @@ public class Transaction
     {
         Id = Guid.NewGuid();
     }
-}
-
-public enum TransactionStatus
-{
-    Borrowed = 0,
-    Returned = 1
 }
