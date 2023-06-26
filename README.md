@@ -1,2 +1,2 @@
 # BreakevenStone
-neste repositorio vamos criar uma api sendo uma bliblioteca de livros onde o usuario poderá pegar livros emprestados com algumas regras
+Deve ser criado uma api para simular o funcionamento de uma biblioteca,  ou seja, deve ser possível cadastrar livros, e realizar o processo de empréstimos dos mesmos.
