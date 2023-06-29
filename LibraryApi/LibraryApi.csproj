@@ -23,7 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Remove="Entity\WeatherForecast.cs" />
+      <Compile Remove=""/>
     </ItemGroup>
 
 </Project>

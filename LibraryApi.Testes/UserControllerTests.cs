@@ -8,7 +8,7 @@ namespace LibraryApi.Tests
 {
     public class UserControllerTests
     {
-        private readonly UserController _controller;
+        private readonly UserController _userController;
         private readonly Mock<IUserRepository> _userRepository;
         private readonly Mock<ITransactionRepository> _transactionRepository; 
         
@@ -17,7 +17,7 @@ namespace LibraryApi.Tests
             _userRepository = new (); // Instância mocada do UserRepository
             _transactionRepository = new ();//instancia mocada do transactionRepository
             
-            _controller = new UserController(_userRepository.Object,_transactionRepository.Object);
+            _userController = new UserController(_userRepository.Object,_transactionRepository.Object);
         }
         [Fact]
         public async Task GetById_ExistingId_ReturnsUser()
@@ -27,9 +27,10 @@ namespace LibraryApi.Tests
             
             _userRepository.Setup(x => x.GetById(It.IsAny<Guid>())).ReturnsAsync(expectedUser);
             
-            var result = await _controller.GetById(userId);
+            var result = await _userController.GetById(userId);
             
             Assert.Equal(expectedUser, result);
         }
     }
 }
+

@@ -14,7 +14,7 @@ namespace LibraryApi.Controller;
 
         public UserController(IUserRepository userRepository, ITransactionRepository transactionRepository)
         {
-            this._userRepository = userRepository;
+            _userRepository = userRepository;
             _transactionRepository = transactionRepository;
         }
 
